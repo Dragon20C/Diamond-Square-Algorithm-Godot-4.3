@@ -60,7 +60,6 @@ func diamond_square() -> void:
 	
 	var chunk_size : int = height_size - 1
 	var roughness : float = initial_roughness
-	var chunk_half : int = chunk_size * 0.5
 	
 	while chunk_size > 1:
 		calculate_square(chunk_size,roughness)
