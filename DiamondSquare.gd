@@ -95,18 +95,17 @@ func calculate_diamond(chunk_size : int, roughness : float) -> void:
 	
 func calculate_square(chunk_size : int, roughness : float) -> void:
 	for y in range(0,height_size - 1,chunk_size):
-			for x in range(0,height_size - 1,chunk_size):
-				
-				var top_left : float = height_map[x][y]
-				var top_right : float = height_map[x + chunk_size][y]
-				var bottom_left : float = height_map[x][y + chunk_size]
-				var bottom_right : float = height_map[x + chunk_size][y + chunk_size]
-				
-				var avg : float = top_left + top_right + bottom_left + bottom_right
-				avg = avg / 4
-				avg += get_roughness_scaler(roughness)
-				
-				height_map[x + chunk_size / 2][y + chunk_size / 2] = avg
+		for x in range(0,height_size - 1,chunk_size):
+			var top_left : float = height_map[x][y]
+			var top_right : float = height_map[x + chunk_size][y]
+			var bottom_left : float = height_map[x][y + chunk_size]
+			var bottom_right : float = height_map[x + chunk_size][y + chunk_size]
+			
+			var avg : float = top_left + top_right + bottom_left + bottom_right
+			avg = avg / 4
+			avg += get_roughness_scaler(roughness)
+			
+			height_map[x + chunk_size / 2][y + chunk_size / 2] = avg
 
 
 func get_roughness_scaler(_current_roughness : float) -> float:
